@@ -28,7 +28,6 @@ export default {
                 ],
             },
             defaultValue: 'bottom',
-            section: 'settings',
         },
         align: {
             label: { en: 'Align' },
@@ -41,7 +40,6 @@ export default {
                 ],
             },
             defaultValue: 'start',
-            section: 'settings',
         },
         offsetX: {
             label: { en: 'Offset X' },
@@ -53,7 +51,6 @@ export default {
                 ],
             },
             defaultValue: '0px',
-            section: 'settings',
         },
         offsetY: {
             label: { en: 'Offset Y' },
@@ -65,26 +62,22 @@ export default {
                 ],
             },
             defaultValue: '0px',
-            section: 'settings',
         },
         initialState: {
             label: { en: 'Initial state' },
             type: 'OnOff',
             defaultValue: false,
-            section: 'settings',
         },
         editorDisplay: {
             label: { en: 'Editor display' },
             type: 'OnOff',
             defaultValue: false,
-            section: 'settings',
             editorOnly: true,
         },
         autoPosition: {
             label: { en: 'Auto position' },
             type: 'OnOff',
             defaultValue: true,
-            section: 'settings',
         },
         boundOffset: {
             label: { en: 'Bound offset' },
@@ -96,13 +89,11 @@ export default {
                 ],
             },
             defaultValue: '0px',
-            section: 'settings',
         },
         animated: {
             label: { en: 'Animated' },
             type: 'OnOff',
             defaultValue: true,
-            section: 'settings',
         },
         slot: {
             hidden: true,
