@@ -16,6 +16,11 @@ export default {
         { name: 'initValueChange', label: { en: 'On init value change' }, event: { value: '' } },
     ],
     properties: {
+        // autoPosition: {
+        //     label: { en: 'Auto position' },
+        //     type: 'OnOff',
+        //     defaultValue: false,
+        // },
         side: {
             label: { en: 'Side' },
             type: 'TextSelect',
@@ -28,6 +33,7 @@ export default {
                 ],
             },
             defaultValue: 'bottom',
+            // hidden: content => content.autoPosition,
         },
         align: {
             label: { en: 'Align' },
@@ -40,6 +46,7 @@ export default {
                 ],
             },
             defaultValue: 'start',
+            // hidden: content => content.autoPosition,
         },
         offsetX: {
             label: { en: 'Offset X' },
@@ -63,22 +70,6 @@ export default {
             },
             defaultValue: '0px',
         },
-        initialState: {
-            label: { en: 'Initial state' },
-            type: 'OnOff',
-            defaultValue: false,
-        },
-        editorDisplay: {
-            label: { en: 'Editor display' },
-            type: 'OnOff',
-            defaultValue: false,
-            editorOnly: true,
-        },
-        autoPosition: {
-            label: { en: 'Auto position' },
-            type: 'OnOff',
-            defaultValue: true,
-        },
         boundOffset: {
             label: { en: 'Bound offset' },
             type: 'Length',
@@ -89,11 +80,6 @@ export default {
                 ],
             },
             defaultValue: '0px',
-        },
-        animated: {
-            label: { en: 'Animated' },
-            type: 'OnOff',
-            defaultValue: true,
         },
         slot: {
             hidden: true,
