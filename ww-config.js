@@ -16,11 +16,21 @@ export default {
         { name: 'initValueChange', label: { en: 'On init value change' }, event: { value: '' } },
     ],
     properties: {
-        // autoPosition: {
-        //     label: { en: 'Auto position' },
-        //     type: 'OnOff',
-        //     defaultValue: false,
-        // },
+        items: {
+            bindable: 'repeatable',
+            label: {
+                en: 'Items',
+                fr: 'Items',
+            },
+            type: 'Info',
+            options: {
+                text: {
+                    en: 'Elements to repeat',
+                },
+            },
+            defaultValue: [],
+            hidden: true,
+        },
         side: {
             label: { en: 'Side' },
             type: 'TextSelect',
