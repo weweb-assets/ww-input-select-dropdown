@@ -68,6 +68,16 @@ export default {
                 ],
             },
             defaultValue: '0px',
+            /* wwEditor:start */
+            bindingValidation: {
+                validations: [{ type: 'number' }],
+                tooltip:
+                    'The horizontal offset of the dropdown relative to the trigger. A number value: \n\n`4`, `8`, `12`, etc.',
+            },
+            propertyHelp: {
+                tooltip: 'The horizontal offset of the dropdown relative to the trigger.',
+            },
+            /* wwEditor:end */
         },
         offsetY: {
             label: { en: 'Offset Y' },
@@ -79,9 +89,19 @@ export default {
                 ],
             },
             defaultValue: '0px',
+            /* wwEditor:start */
+            bindingValidation: {
+                validations: [{ type: 'number' }],
+                tooltip:
+                    'The vertical offset of the dropdown relative to the trigger. A number value: \n\n`4`, `8`, `12`, etc.',
+            },
+            propertyHelp: {
+                tooltip: 'The vertical offset of the dropdown relative to the trigger.',
+            },
+            /* wwEditor:end */
         },
         boundOffset: {
-            label: { en: 'Bound offset' },
+            label: { en: 'Edge offset' },
             type: 'Length',
             options: {
                 unitChoices: [
@@ -90,6 +110,17 @@ export default {
                 ],
             },
             defaultValue: '0px',
+            /* wwEditor:start */
+            bindingValidation: {
+                validations: [{ type: 'number' }],
+                tooltip:
+                    'Offset to the edge of the screen when the dropdown should change the side to opposite when there is no space for it. A number value: \n\n`4`, `8`, `12`, etc.',
+            },
+            propertyHelp: {
+                tooltip:
+                    'Offset to the edge of the screen when the dropdown should change the side to opposite when there is no space for it.',
+            },
+            /* wwEditor:end */
         },
         slot: {
             hidden: true,
