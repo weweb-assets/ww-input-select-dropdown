@@ -13,7 +13,6 @@ export default {
         /* wwEditor:end */
         wwElementState: { type: Object, required: true },
     },
-    emits: ['update:content'],
     setup(props) {
         const updateDropdownConfig = inject('_wwSelectUpdateDropdownConfig', () => {});
 
