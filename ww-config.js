@@ -1,11 +1,14 @@
 export default {
     editor: {
-        label: 'Select',
+        label: 'Select Dropdown',
         icon: 'select',
-        bubble: true,
     },
     inherit: {
         type: 'ww-layout',
+    },
+    options: {
+        autoByContent: true,
+        displayAllowedValues: ['flex', 'grid', 'inline-flex', 'inline-grid'],
     },
     states: ['readonly'],
     triggerEvents: [
@@ -26,161 +29,102 @@ export default {
                 },
             },
             defaultValue: [],
-            /* wwEditor:start */
-            bindingValidation: {
-                validations: [
-                    {
-                        type: 'array',
-                    },
-                    {
-                        type: 'object',
-                    },
-                ],
-                tooltip:
-                    'A collection or an array of data: \n\n`myCollection` or `[{}, {}, ...] || ["string1", "string2", ...] || [1, 2, ...]`',
-            },
-            /* wwEditor:end */
+            hidden: true,
         },
-        value: {
-            type: 'Text',
-            label: 'Initial value',
-            settings: true,
-            bindable: true,
-            /* wwEditor:start */
-            bindingValidation: {
-                validations: [
-                    {
-                        type: 'array',
-                    },
-                    {
-                        type: 'string',
-                    },
-                ],
-                tooltip: 'A string value: \n\n`"myValue"`, or an array of values: \n\n`["myValue1", "myValue2"]`',
-            },
-            /* wwEditor:end */
-        },
-        name: {
-            type: 'Text',
-            label: 'Radio name',
-            settings: true,
-            bindable: true,
-            /* wwEditor:start */
-            bindingValidation: {
-                type: 'string',
-                tooltip: 'A string value for the radio name: \n\n`"myRadioName"`',
-            },
-            /* wwEditor:end */
-        },
-        selectType: {
-            label: 'Select type',
+        side: {
+            label: { en: 'Side' },
             type: 'TextSelect',
             options: {
                 options: [
-                    {
-                        value: 'single',
-                        label: 'Single',
-                    },
-                    {
-                        value: 'multiple',
-                        label: 'Multiple',
-                    },
+                    { value: 'bottom', label: 'Bottom' },
+                    { value: 'left', label: 'Left' },
+                    { value: 'top', label: 'Top' },
+                    { value: 'right', label: 'Right' },
                 ],
             },
-            bindable: true,
-            /* wwEditor:start */
-            bindingValidation: {
-                type: 'string',
-                enum: ['single', 'multiple'],
-                tooltip: 'A string value, either "single" or "multiple"',
+            defaultValue: 'bottom',
+            // hidden: content => content.autoPosition,
+        },
+        align: {
+            label: { en: 'Align' },
+            type: 'TextSelect',
+            options: {
+                options: [
+                    { value: 'start', label: 'Start' },
+                    { value: 'center', label: 'Center' },
+                    { value: 'end', label: 'End' },
+                ],
             },
-            /* wwEditor:end */
+            defaultValue: 'start',
+            // hidden: content => content.autoPosition,
         },
-        disabled: {
-            label: { en: 'Disabled' },
-            type: 'OnOff',
-            section: 'settings',
-            defaultValue: false,
-            bindable: true,
-            /* wwEditor:start */
-            bindingValidation: {
-                type: 'boolean',
-                tooltip: 'A boolean value: \n\n`true` or `false`',
+        offsetX: {
+            label: { en: 'Offset X' },
+            type: 'Length',
+            options: {
+                unitChoices: [
+                    { value: 'px', label: 'px', min: -100, max: 100 },
+                    { value: '%', label: '%', min: -100, max: 100 },
+                ],
             },
-            /* wwEditor:end */
-        },
-        required: {
-            label: { en: 'Required' },
-            type: 'OnOff',
-            section: 'settings',
-            defaultValue: false,
-            bindable: true,
+            defaultValue: '0px',
             /* wwEditor:start */
             bindingValidation: {
-                type: 'boolean',
-                tooltip: 'A boolean value: \n\n`true` or `false`',
-            },
-            /* wwEditor:end */
-        },
-        readonly: {
-            label: { en: 'Read-only' },
-            type: 'OnOff',
-            section: 'settings',
-            defaultValue: false,
-            bindable: true,
-            /* wwEditor:start */
-            bindingValidation: {
-                type: 'boolean',
-                tooltip: 'A boolean value: \n\n`true` or `false`',
-            },
-            /* wwEditor:end */
-        },
-        canUnselect: {
-            label: { en: 'Can unselect' },
-            type: 'OnOff',
-            section: 'settings',
-            defaultValue: false,
-            bindable: true,
-            /* wwEditor:start */
-            bindingValidation: {
-                type: 'boolean',
-                tooltip: 'A boolean value: \n\n`true` or `false`',
-            },
-            /* wwEditor:end */
-        },
-        forceOpenInEditor: {
-            label: { en: 'Force open in editor' },
-            type: 'OnOff',
-            section: 'settings',
-            defaultValue: false,
-            editorOnly: true,
-        },
-        loadOnScroll: {
-            label: { en: 'Load on scroll' },
-            type: 'OnOff',
-            section: 'settings',
-            defaultValue: false,
-            bindable: true,
-            /* wwEditor:start */
-            bindingValidation: {
-                type: 'boolean',
-                tooltip: 'A boolean value: \n\n`true` or `false`',
-            },
-            /* wwEditor:end */
-        },
-        options: {
-            label: { en: 'Options' },
-            type: 'Array',
-            section: 'settings',
-            bindable: true,
-            defaultValue: [],
-            /* wwEditor:start */
-            bindingValidation: {
-                type: 'array',
+                validations: [{ type: 'number' }],
                 tooltip:
-                    'An array of option objects: \n\n`[{ label: "Option 1", value: "1" }, { label: "Option 2", value: "2" }]`',
+                    'The horizontal offset of the dropdown relative to the trigger. A number value: \n\n`4`, `8`, `12`, etc.',
+            },
+            propertyHelp: {
+                tooltip: 'The horizontal offset of the dropdown relative to the trigger.',
             },
             /* wwEditor:end */
+        },
+        offsetY: {
+            label: { en: 'Offset Y' },
+            type: 'Length',
+            options: {
+                unitChoices: [
+                    { value: 'px', label: 'px', min: -100, max: 100 },
+                    { value: '%', label: '%', min: -100, max: 100 },
+                ],
+            },
+            defaultValue: '0px',
+            /* wwEditor:start */
+            bindingValidation: {
+                validations: [{ type: 'number' }],
+                tooltip:
+                    'The vertical offset of the dropdown relative to the trigger. A number value: \n\n`4`, `8`, `12`, etc.',
+            },
+            propertyHelp: {
+                tooltip: 'The vertical offset of the dropdown relative to the trigger.',
+            },
+            /* wwEditor:end */
+        },
+        boundOffset: {
+            label: { en: 'Edge offset' },
+            type: 'Length',
+            options: {
+                unitChoices: [
+                    { value: 'px', label: 'px', min: 0, max: 100 },
+                    { value: '%', label: '%', min: 0, max: 100 },
+                ],
+            },
+            defaultValue: '0px',
+            /* wwEditor:start */
+            bindingValidation: {
+                validations: [{ type: 'number' }],
+                tooltip:
+                    'Offset to the edge of the screen when the dropdown should change the side to opposite when there is no space for it. A number value: \n\n`4`, `8`, `12`, etc.',
+            },
+            propertyHelp: {
+                tooltip:
+                    'Offset to the edge of the screen when the dropdown should change the side to opposite when there is no space for it.',
+            },
+            /* wwEditor:end */
+        },
+        slot: {
+            hidden: true,
+            defaultValue: [],
         },
     },
 };
