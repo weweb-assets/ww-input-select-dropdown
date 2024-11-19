@@ -14,7 +14,7 @@ export default {
         wwElementState: { type: Object, required: true },
     },
     setup(props) {
-        const updateDropdownConfig = inject('_wwSelectUpdateDropdownConfig', () => {});
+        const updateDropdownConfig = inject('_wwSelect:updateDropdownConfig', () => {});
 
         const dropdownConfig = computed(() => ({
             side: props.content.side,
